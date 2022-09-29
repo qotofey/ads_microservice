@@ -2,4 +2,11 @@
 
 source 'https://rubygems.org'
 
-gem 'rubocop'
+gem 'roda', '~> 3.60'
+gem 'sequel', '~> 5.60'
+
+group :development, :test do
+  gem 'byebug', '~> 11.1'
+  gem 'rubocop', '~> 1.36'
+  gem 'rubocop-sequel', '~> 0.3.4'
+end
