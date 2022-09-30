@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rack'
-require_relative 'ads_microservice/application'
+require_relative 'lib/ads_microservice'
 
 class AppAds
   def self.call(env)
@@ -9,4 +9,4 @@ class AppAds
   end
 end
 
-run AppAds
+run AdsMicroservice::Application.freeze.app
