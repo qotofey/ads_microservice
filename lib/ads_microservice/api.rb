@@ -4,36 +4,42 @@ require 'roda'
 
 module AdsMicroservice
   class API < Roda
-    plugin :all_verbs
     plugin :json
+
+    plugin :not_found do
+      { status: :not_found }
+    end
 
     route do |r|
       r.on 'ads' do
         r.is do
-          r.get { { response_message: 'from: GET (all)' } }
+          r.get do
+            ads = Ad.all
+
+            AdBlueprint.render(ads)
+          end
+
+          r.post do
+            params = Oj.load(request.body.read)
+            current_time = DateTime.now
+            params.merge!(
+              created_at: current_time,
+              updated_at: current_time
+            )
+            ad_id = Ad.insert(params)
+            ad = Ad.first(id: ad_id)
+
+            AdBlueprint.render(ad)
+          end
         end
 
         r.is Integer do |ad_id|
           r.get do
-            { ad_id: ad_id }
-          end
+            ad = Ad.first(id: ad_id)
+            
+            return if ad.nil?
 
-          r.patch do
-            # response.status = 403
-
-            { response_message: 'from: PATCH' }
-          end
-
-          r.put do
-            # response.status = 403
-
-            { response_message: 'from: PUT' }
-          end
-
-          r.delete do
-            # response.status = 204
-
-            { response_message: 'from: DELETE' }
+            AdBlueprint.render(ad)
           end
         end
       end
