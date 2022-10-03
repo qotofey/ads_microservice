@@ -20,13 +20,7 @@ module AdsMicroservice
           end
 
           r.post do
-            params = Oj.load(request.body.read)
-            current_time = DateTime.now
-            params.merge!(
-              created_at: current_time,
-              updated_at: current_time
-            )
-            ad_id = Ad.insert(params)
+            ad_id = Ad.create(params)
             ad = Ad.first(id: ad_id)
 
             AdBlueprint.render(ad)
@@ -43,6 +37,12 @@ module AdsMicroservice
           end
         end
       end
+    end
+
+    private
+
+    def params
+      Oj.load(request.body.read)
     end
   end
 end
