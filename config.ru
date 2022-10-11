@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
-require 'rack'
-require_relative 'lib/ads_microservice'
+require_relative 'config/environment'
 
-class AppAds
-  def self.call(env)
-    [200, { 'Content-Type' => 'text/plain' }, ["Hello, world!\n #{JSON.parse(env)}"]]
-  end
-end
-
-run AdsMicroservice::Application.freeze.app
+# app -> (env) { [200, { 'Content-Type' => 'text/plain' }, ["Hello, world!\n #{JSON.parse(env)}"]
+run Application.freeze.app

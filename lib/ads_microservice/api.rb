@@ -20,7 +20,7 @@ module AdsMicroservice
           end
 
           r.post do
-            ad_id = Ad.create(params)
+            ad_id = Ad.insert(params)
             ad = Ad.first(id: ad_id)
 
             AdBlueprint.render(ad)
@@ -30,10 +30,10 @@ module AdsMicroservice
         r.is Integer do |ad_id|
           r.get do
             ad = Ad.first(id: ad_id)
-            
+
             return if ad.nil?
 
-            AdBlueprint.render(ad)
+            AdBlueprint.render(ad, root: :data, meta: {}, links: {})
           end
         end
       end
