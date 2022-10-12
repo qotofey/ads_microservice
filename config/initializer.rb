@@ -19,19 +19,21 @@ module Initializer
 
   def initialize_application
     require_file('config/application')
+
+    require_dir('config/application')
   end
 
-  def root
-    File.expand_path('..', __dir__)
+  def root_path
+    @root_path ||= File.expand_path('..', __dir__)
   end
 
   def require_file(path)
-    require File.join(root, path)
+    require File.join(root_path, path)
   end
 
   def require_dir(path)
-    path = File.join(root, path)
+    path = File.join(root_path, path)
     
-    Dir["#{root}/**/*.rb"].each { |file| require file }
+    Dir["#{path}/**/*.rb"].each { |file| require file }
   end
 end

@@ -2,4 +2,6 @@
 .idea/
 .vs_code/
 
+.byebug_history
+
 *.db

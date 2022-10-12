@@ -17,7 +17,11 @@ class Application < Roda
         r.on :ads do
           r.is do
             r.get do
-              'ads'
+              'GET: /api/v1/ads'
+            end
+
+            r.post do
+              'POST: /api/v1/ads'
             end
           end
         end
