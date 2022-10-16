@@ -4,23 +4,25 @@ module Initializer
   extend self
 
   def run
-    # initialize_config
-    # initialize_database
+    initialize_config
+    initialize_database
     initialize_application
   end
 
   private
 
-  def initialize_config; end
+  def initialize_config 
+    require_file('config/initializers/config')
+  end
 
   def initialize_database
-    require_file('config/sequel')
+    require_file('config/initializers/sequel')
   end
 
   def initialize_application
     require_file('config/application')
 
-    require_dir('config/application')
+    require_dir('config/initializers')
   end
 
   def root_path

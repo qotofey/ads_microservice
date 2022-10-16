@@ -4,7 +4,7 @@ Sequel.migration do
       primary_key :id, type: :Bignum
 
       String :title, null: false
-      String :description, null: false
+      Text :description, null: false
       String :city, null: false
       Float :lat
       Float :lon
