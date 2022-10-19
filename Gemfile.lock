@@ -113,6 +113,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  activesupport (~> 7.0)
   blueprinter (~> 0.25.3)
   byebug (~> 11.1)
   config (~> 4.0)

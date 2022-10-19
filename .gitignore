@@ -1,5 +1,6 @@
 .DS_Store
 .idea/
+.fleet/
 .vs_code/
 
 .byebug_history

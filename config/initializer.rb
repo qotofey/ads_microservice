@@ -11,7 +11,7 @@ module Initializer
 
   private
 
-  def initialize_config 
+  def initialize_config
     require_file('config/initializers/config')
   end
 
@@ -22,6 +22,7 @@ module Initializer
   def initialize_application
     require_file('config/application')
 
+    require_dir('app')
     require_dir('config/initializers')
   end
 
@@ -35,7 +36,7 @@ module Initializer
 
   def require_dir(path)
     path = File.join(root_path, path)
-    
+
     Dir["#{path}/**/*.rb"].each { |file| require file }
   end
 end

@@ -8,7 +8,7 @@ end
 
 setting_files = Config.setting_files(
   File.expand_path('..', __dir__),
-  ENV['RACK_ENV']
+  ENV.fetch('RACK_ENV', nil)
 )
 
 Config.load_and_set_settings(setting_files)

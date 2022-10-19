@@ -3,7 +3,7 @@
 class Application < Roda
   plugin :environments
   plugin :slash_path_empty
-  
+
   route do |r|
     r.root do
       response['Content-Type'] = 'text/plain'

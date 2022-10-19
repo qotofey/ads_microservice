@@ -30,6 +30,7 @@ gem 'oj', '~> 3.13'
 gem 'puma', '~> 5.6'
 gem 'roda', '~> 3.60'
 
+gem 'activesupport', '~> 7.0', require: false
 gem 'pg', '~> 1.4'
 gem 'sequel', '~> 5.60'
 gem 'sqlite3', '~> 1.5'
