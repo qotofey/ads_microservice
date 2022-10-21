@@ -2,5 +2,7 @@
 
 require_relative 'config/environment'
 
-# app -> (env) { [200, { 'Content-Type' => 'text/plain' }, ["Hello, world!\n #{JSON.parse(env)}"]
-run Application.freeze.app
+# run Application.freeze.app # for roda gem
+map '/ads' do
+  run Application
+end

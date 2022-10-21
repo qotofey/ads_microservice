@@ -3,7 +3,7 @@
 module Initializer
   extend self
 
-  def run
+  def run!
     initialize_config
     initialize_database
     initialize_application
@@ -37,6 +37,6 @@ module Initializer
   def require_dir(path)
     path = File.join(root_path, path)
 
-    Dir["#{path}/**/*.rb"].each { |file| require file }
+    Dir["#{path}/**/*.rb"].sort.each { |file| require file }
   end
 end

@@ -10,6 +10,7 @@ end
 
 group :development, :test do
   gem 'byebug', '~> 11.1'
+  gem 'database_cleaner-sequel', '~> 2.0'
   gem 'rspec', '~> 3.11'
   gem 'rubocop', '~> 1.36'
   gem 'rubocop-rspec', '~> 2.13'
@@ -23,12 +24,12 @@ gem 'rake', '~> 13.0'
 gem 'dry-initializer', '~> 3.1'
 gem 'dry-validation', '~> 1.8'
 
-gem 'blueprinter', '~> 0.25.3'
 gem 'jsonapi-serializer', '~> 2.2'
 gem 'oj', '~> 3.13'
 
 gem 'puma', '~> 5.6'
-gem 'roda', '~> 3.60'
+gem 'sinatra', '~> 3.0.2', require: 'sinatra/base'
+gem 'sinatra-contrib', '~> 3.0.2'
 
 gem 'activesupport', '~> 7.0', require: false
 gem 'pg', '~> 1.4'

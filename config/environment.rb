@@ -6,4 +6,4 @@ require 'bundler/setup'
 Bundler.require(:default, ENV.fetch('RACK_ENV', nil))
 
 require_relative 'initializer'
-Initializer.run
+Initializer.run!

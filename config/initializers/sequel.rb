@@ -2,7 +2,7 @@
 
 Sequel.connect("sqlite://#{Settings.db.database}.db")
 
-# Sequel::Model.db.extesion(:pagination)
+Sequel::Model.db.extension(:pagination)
 
 Sequel::Model.plugin :validation_helpers
 Sequel::Model.plugin :timestamps, update_on_create: true
