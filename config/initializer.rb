@@ -20,8 +20,10 @@ module Initializer
   end
 
   def initialize_application
+    require_dir('app/helpers')
     require_file('config/application')
-
+    require_file('app/services/basic_service')
+    require_dir 'app/contracts'
     require_dir('app')
     require_dir('config/initializers')
   end

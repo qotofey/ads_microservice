@@ -3,6 +3,6 @@
 require_relative 'config/environment'
 
 # run Application.freeze.app # for roda gem
-map '/ads' do
-  run Application
+map '/api/v1' do
+  run AdRoutes
 end

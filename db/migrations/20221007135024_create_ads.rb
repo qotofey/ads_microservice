@@ -10,7 +10,7 @@ Sequel.migration do
       String :city, null: false
       Float :lat
       Float :lon
-      Integer :user_id, null: false
+      Integer :user_id
       DateTime :created_at, null: false
       DateTime :updated_at, null: false
 

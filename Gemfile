@@ -10,11 +10,16 @@ end
 
 group :development, :test do
   gem 'byebug', '~> 11.1'
-  gem 'database_cleaner-sequel', '~> 2.0'
-  gem 'rspec', '~> 3.11'
+  gem 'factory_bot', '~> 6.2'
   gem 'rubocop', '~> 1.36'
   gem 'rubocop-rspec', '~> 2.13'
   gem 'rubocop-sequel', '~> 0.3.4'
+end
+
+group do
+  gem 'database_cleaner-sequel', '~> 2.0'
+  gem 'rack-test', '~> 2.0'
+  gem 'rspec', '~> 3.11'
 end
 
 gem 'config', '~> 4.0'

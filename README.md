@@ -14,7 +14,7 @@ rvm --ruby-version use 2.7.6@ads_microservice
 ```
 
 ```bash
-bundle add roda
+bundle add sinatra
 bundle add sequel
 
 bundle add byebug --group "development, test"
@@ -23,14 +23,4 @@ bundle add byebug --group "development, test"
 Service Objects:
 ```
 lib/ads_microservice/services
-```
-
-Query Objects:
-```
-lib/ads_microserice/queries
-```
-
-Form Objects:
-```
-lib/ads_microservice/forms
 ```

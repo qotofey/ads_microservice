@@ -1,43 +1,26 @@
 # frozen_string_literal: true
 
-module Ad
-  class CreateService
-    def initializer(params)
-      @params = params
-      @errors = []
-    end
+class Ad::CreateService
+  prepend BasicService
 
-    def call
-      @ad = Ad.new(@params)
-      if @ad.valid?
-        @ad.save
-      else
-        fail(ad.errors)
-      end
+  option :ad do
+    option :title
+    option :description
+    option :city
+  end
 
-      self
-    end
+  option :user_id
 
-    def success?
-      !failure?
-    end
+  attr_reader :ad
 
-    def failure?
-      @errors.any?
-    end
+  def call
+    @ad = ::Ad.new(@ad.to_h)
+    @ad.user_id = @user_id
 
-    def success
-      @ad
-    end
-
-    def failure
-      @errors
-    end
-
-    private
-
-    def fail(messages)
-      @errors += Array(messages)
+    if @ad.valid?
+      @ad.save
+    else
+      fail!(@ad.errors)
     end
   end
 end
